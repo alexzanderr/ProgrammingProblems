@@ -1,0 +1,101 @@
+#include <iostream>
+#include <cstring>
+#include <fstream>
+
+using namespace std;
+
+ifstream fin("bac.txt");
+
+int main()
+{
+    //MODEL 2012
+    int n, c = 0;
+    char s[21], cuv[21];
+    cin >> n;
+    cin >> cuv;
+    for(int i = 1; i < n; i++)
+    {
+        cin >> s;
+        if(strcmp(s + strlen(s) - strlen(cuv), cuv) == 0)
+            c++;
+    }
+    cout << c;
+    return 0;
+}
+
+
+
+-----------------------------------------------------------------------
+#include <iostream>
+#include <cstring>
+#include <fstream>
+
+using namespace std;
+
+ifstream fin("bac.txt");
+
+int main()
+{
+    //OLIMPICI 2012
+    bool gasit = true;
+    int n, c = 0, index = 0;
+    char s[31], cuv[31], comp[31];
+    cin >> s;
+    cin >> cuv;
+    for(int i = 0; i < strlen(cuv); i++)
+    {
+        if(cuv[i] == s[index])
+        {
+            index++;
+            c++;
+        }
+    }
+    if(c == strlen(s)) cout << "DA";
+    else cout << "NU";
+    return 0;
+}
+
+
+-----------------------------------------------------------------------
+#include <iostream>
+#include <cstring>
+#include <fstream>
+
+using namespace std;
+
+ifstream fin("bac.txt");
+
+int main()
+{
+    //MODEL 2014
+    char s[101], *t = new char[100], sep[] = " ", new_s[101] = "";
+    cin.getline(s, 101);
+    t = strtok(s, sep);
+    while(t)
+    {
+        for(int i = 0; i < strlen(t) - 1; i++)
+        {
+            if(strchr("aeiou", t[i]))
+            {
+                if(strchr("aeiou", t[i + 1]))
+                {
+                    strcpy(t + i + 1, t + i + 2);
+                    i--;
+                }
+            }
+        }
+        strcat(new_s, t);
+        strcat(new_s, " ");
+        t = strtok(nullptr, sep);
+    }
+    strcpy(s, new_s);
+    cout << s;
+    return 0;
+}
+
+
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------
+
+-----------------------------------------------------------------------

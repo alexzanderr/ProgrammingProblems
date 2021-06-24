@@ -1,0 +1,34 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int cmmdc(int a, int b) {
+	int rest;
+	while(b) {
+		rest = a % b;
+		a = b;
+		b = rest;
+	}
+	return a;
+}
+
+int main() {
+	ifstream in("cmmdc.in");
+	
+	int a;
+	in >> a;
+	int b;
+	in >> b;
+
+	in.close();
+
+	ofstream out("cmmdc.out");
+
+	int result = cmmdc(a, b);
+	out << result;
+
+	out.close();
+	return 0;
+
+}
